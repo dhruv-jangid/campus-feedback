@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Feedback Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="logo">🎓</span>
+      <div>
+        <h1>Campus Feedback Portal</h1>
+        <p class="tagline">Share your thoughts to help us improve campus life</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- FEEDBACK FORM -->
+    <section class="card">
+      <h2>Submit Your Feedback</h2>
+      <p class="subtitle">All fields are required.</p>
+
+      <!-- "novalidate" turns off the browser's built-in pop-ups,
+           so OUR JavaScript validation messages are shown instead -->
+      <form id="feedbackForm" novalidate>
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Dhruv Jangid" maxlength="50" autocomplete="name">
+          <small class="error" id="nameError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="e.g. student@college.edu" maxlength="100" autocomplete="email">
+          <small class="error" id="emailError"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="feedback">Your Feedback</label>
+          <textarea id="feedback" name="feedback" rows="5" placeholder="Write your feedback here (10–500 characters)" maxlength="500"></textarea>
+          <div class="field-footer">
+            <small class="error" id="feedbackError"></small>
+            <small class="counter" id="charCounter">0 / 500</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Feedback</button>
+      </form>
+
+      <!-- Overall success / error message appears here -->
+      <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+    </section>
+
+    <!-- SUBMITTED FEEDBACK DISPLAY -->
+    <section class="card">
+      <h2>Submitted Feedback</h2>
+      <p class="subtitle">Feedback is displayed safely as plain text (never as HTML).</p>
+      <div id="feedbackList" class="feedback-list">
+        <p class="empty-state" id="emptyState">No feedback submitted yet.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>CSSF4023P · OS, Application &amp; Cloud Security · Assignment 2</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

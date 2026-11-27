@@ -1,0 +1,256 @@
+/* ===== Base / Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #1e3a8a;        /* deep college blue */
+  --primary-light: #3b82f6;
+  --accent: #f59e0b;         /* warm gold accent */
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #cbd5e1;
+  --error: #dc2626;
+  --error-bg: #fef2f2;
+  --success: #16a34a;
+  --success-bg: #f0fdf4;
+  --radius: 12px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+.site-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  padding: 28px 20px;
+  border-bottom: 4px solid var(--accent);
+}
+
+.brand {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 2.6rem;
+}
+
+.site-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: 760px;
+  width: 100%;
+  margin: 32px auto;
+  padding: 0 20px;
+  flex: 1;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+  color: var(--primary);
+  font-size: 1.35rem;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+/* ===== Form ===== */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Red border on fields that fail validation */
+input.invalid,
+textarea.invalid {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+
+.error {
+  color: var(--error);
+  font-size: 0.85rem;
+  display: block;
+  min-height: 1.2em;
+  margin-top: 4px;
+}
+
+.field-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.counter {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+/* ===== Button ===== */
+.btn-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(30, 58, 138, 0.35);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* ===== Messages ===== */
+.form-message {
+  margin-top: 18px;
+  padding: 0;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.form-message.success {
+  padding: 14px 16px;
+  background: var(--success-bg);
+  color: var(--success);
+  border-left: 4px solid var(--success);
+}
+
+.form-message.error-msg {
+  padding: 14px 16px;
+  background: var(--error-bg);
+  color: var(--error);
+  border-left: 4px solid var(--error);
+}
+
+/* ===== Submitted Feedback List ===== */
+.feedback-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.empty-state {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.feedback-item {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #fafafa;
+}
+
+.feedback-item .meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.feedback-item .meta strong {
+  color: var(--text);
+}
+
+.feedback-item .text {
+  white-space: pre-wrap;     /* keep line breaks the user typed */
+  word-break: break-word;    /* long strings won't overflow the box */
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  text-align: center;
+  padding: 18px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ===== Responsive (phones) ===== */
+@media (max-width: 600px) {
+  .site-header h1 {
+    font-size: 1.4rem;
+  }
+  .logo {
+    font-size: 2rem;
+  }
+  .card {
+    padding: 20px;
+  }
+}
